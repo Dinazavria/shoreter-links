@@ -2,7 +2,7 @@
 
 		<div class="container text-center">
 			<nav class="navbar">
-				<div class="navbar-brand"><img src=""></div>
+				<div class="navbar-brand"><img src="" alt="logo"></div>
 				<li class="nav-item">
 			        <a class="nav-link" href="#">Главная</a>
 			    </li>
@@ -13,7 +13,7 @@
 			        <a class="nav-link" href="#">Контакты</a>
 			    </li>
 			    <li class="nav-item">
-			        <a class="nav-link" href="#">Войти</a>
+			        <a class="nav-link" href="#"><?php echo "Войти"; ?></a>
 			    </li>
 			</nav>
 			<div class="content d-flex justify-content-center align-items-center">
