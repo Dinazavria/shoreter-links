@@ -10,7 +10,13 @@
         <li class="nav-item">
             <a class="nav-link" href="/contact/">Контакты</a>
         </li>
+        <?php if($_COOKIE['login'] == ''): ?>
         <li class="nav-item">
-            <a class="nav-link" href="#"><?php echo "Войти"; ?></a>
+            <a class="nav-link" href="/user/auth"><?php echo "Войти"; ?></a>
         </li>
+        <?php else: ?>
+        <li class="nav-item">
+            <a class="nav-link" href="/user/profile"><?php echo "Кабинет пользователя"; ?></a>
+        </li>
+        <?php endif; ?>
     </nav>

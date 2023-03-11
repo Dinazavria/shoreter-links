@@ -41,7 +41,38 @@ class UserModel {
 
         $query->execute(['email'=> $this->email, 'login' => $this->login, 'password'=>$pass]);
 
-        setcookie('login', $this->login, time() + 3600 * 24 * 14, '/');
+        $this->setCookie();
+    }
+
+    /*public function getUserEmail() {
+        $login = $_COOKIE['login'];
+        $result = $this->_db->query("SELECT * FROM `users` WHERE login='$login'");
+        return $result->fetch(PDO::FETCH_ASSOC);
+    } */
+
+    public function logOut() {
+        setcookie('login', $this->login, time() - 3600 * 24 * 14, '/');
+        unset($_COOKIE['login']);
+        header('Location: /user/auth');
+    }
+
+    public function auth($login, $password) {
+        $result = $this->_db->query("SELECT * FROM `users` WHERE login='$login'");
+        $user = $result->fetch(PDO::FETCH_ASSOC);
+
+        if($user['login'] == '')
+            return "Пользователя с таким логином не существует";
+        else if(password_verify($password, $user['password']))
+            $this->setCookie($login);
+        else
+            return "Пароли не совпадают";
+
+
+    }
+
+    public function setCookie($login) {
+
+        setcookie('login', $login, time() + 3600 * 24 * 14, '/');
         header('Location: /user/profile');
     }
 

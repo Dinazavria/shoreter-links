@@ -1,20 +1,28 @@
 <?php
 
 class User extends Controller {
-    public function reg() {
+    public function profile() {
 
-        $data = [];
-        if(isset($_POST['login'])) {
-            $user = $this->model('UserModel');
-            $user->setData($_POST['email'], $_POST['login'], $_POST['password'], $_POST['repass']);
+        $user = $this->model('UserModel');
 
-            $isValid = $user->validForm();
-            if($isValid)
-                $user->addUser();
-            else
-                $data['message'] = $isValid;
+        if(isset($_POST['logout'])) {
+            $user->logOut();
+            exit();
         }
 
-        $this->view('user/reg', $data);
+        $this->view('user/profile');
     }
+
+    public function auth() {
+
+        $data = [];
+
+        if(isset($_POST['login'])) {
+            $user = $this->model('UserModel');
+            $data['message'] = $user->auth($_POST['login'], $_POST['password']);
+        }
+
+        $this->view('user/auth', $data);
+    }
+
 }

@@ -15,7 +15,7 @@ class Contact extends Controller {
                 $data['message'] = $isValid;
         }
 
-        $this->view('user/reg', $data);
+        $this->view('contact/index', $data);
     }
 
     public function about() {

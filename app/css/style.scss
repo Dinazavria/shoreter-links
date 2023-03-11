@@ -35,12 +35,14 @@ p {
 }
 
 footer {
+
     background: $dark;
     color: $white;
     padding-top: 20px;
     padding-bottom: 20px;
     position: sticky;
     margin-top: 25px;
+    min-width: 100%;
 }
 
 footer > div {

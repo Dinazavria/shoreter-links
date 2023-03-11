@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<body lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,29 +10,39 @@
     <link rel="stylesheet" href="/public/css/style.min.css">
     <link rel="stylesheet" href="/public/css/form.min.css">
 </head>
-
 <body>
 
 <?php require 'public/blocks/header.php' ?>
-
+<?php if($_COOKIE['login'] == ''): ?>
     <div class="content d-flex justify-content-center align-items-center">
         <div class="col-md-4">
-            <h1 class="display-1">Короче</h1>
-            <p>Вам нужно сократить ссылку? Прежде чем это сделать, зарегистрируйтесь на сайте</p>
-            <form action="/home/index" method="POST">
-                <input class="form-control" name="email" type="email" placeholder="Введите email" value="<?=$_POST['email']?>">
-                <input class="form-control" name="login" type="text" placeholder="Введите логин" value="<?=$_POST['login']?>">
-                <input class="form-control" name="password" type="password" placeholder="Введите пароль" value="<?=$_POST['password']?>">
-                <input class="form-control" name="repass" type="password" placeholder="Повторите пароль" value="<?=$_POST['repass']?>">
-                <div class="error"><?=$data['message']?></div>
-                <button class="btn btn-primary" id="send">Зарегистрироваться</button>
-            </form>
-            <p>Есть аккаунт? Тогда вы можете <a href="" class="link-in-p">авторизоваться</a></p>
+                <h1 class="display-1">Короче</h1>
+                <p>Вам нужно сократить ссылку? Прежде чем это сделать, зарегистрируйтесь на сайте</p>
+                <form action="/user/profile" method="POST">
+                    <input class="form-control" name="email" type="email" placeholder="Введите email" value="<?=$_POST['email']?>">
+                    <input class="form-control" name="login" type="text" placeholder="Введите логин" value="<?=$_POST['login']?>">
+                    <input class="form-control" name="password" type="password" placeholder="Введите пароль" value="<?=$_POST['password']?>">
+                    <input class="form-control" name="repass" type="password" placeholder="Повторите пароль" value="<?=$_POST['repass']?>">
+                    <div class="error"><?=$data['message']?></div>
+                    <button class="btn btn-primary" id="send">Зарегистрироваться</button>
+                </form>
+                <p>Есть аккаунт? Тогда вы можете <a href="" class="link-in-p">авторизоваться</a></p>
         </div>
     </div>
 </div>
 
-<?php require 'public/blocks/footer.php' ?>
+<?php else: ?>
+    <div class="content d-flex justify-content-center align-items-center">
+        <div class="col-md-4">
+                <p>Ты авторизовался, ты молодец!</p>
+                <p>(Скоро здесь появится контент)</p>
+
+        </div>
+    </div>
+</div>
+
+<?php endif;?>
+<?require 'public/blocks/footer.php' ?>
 
 </body>
 </html>
