@@ -7,22 +7,9 @@ $textgray: #83757D;
 
 $links: none;
 
-body{
-
-}
-
 li {
     list-style-type: none;
     color: $textgray;
-}
-
-footer {
-    background: $dark;
-    color: $white;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    position: sticky;
-    margin-top: 25px;
 }
 
 p {
@@ -30,8 +17,6 @@ p {
 }
 
 .content {
-    padding-top: 5%;
-    padding-bottom: 5%;
     min-height: 100%;
 }
 
@@ -42,4 +27,35 @@ p {
 
 .display-1 {
     color: $dark;
+}
+
+.navbar > .navbar-brand > img {
+    margin-right: 300px;
+    width: 100px;
+}
+
+footer {
+    background: $dark;
+    color: $white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: sticky;
+    margin-top: 25px;
+}
+
+footer > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer > .social {
+    display: flex;
+    justify-items: end;
+}
+
+footer .container .social img {
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
 }

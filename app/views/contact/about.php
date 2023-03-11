@@ -12,34 +12,19 @@
 
 <body>
 
-<div class="container text-center">
-    <nav class="navbar">
-        <div class="navbar-brand"><img src="" alt="logo"></div>
-        <li class="nav-item">
-            <a class="nav-link" href="/">Главная</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/contact/about/">Про нас</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/contact/">Контакты</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><?php echo "Войти"; ?></a>
-        </li>
-    </nav>
+<?php require 'public/blocks/header.php' ?>
+
+
     <div class="content d-flex justify-content-center align-items-center">
         <div class="col-md-4">
-            <h1 class="display-1">О нас</h1>
-            <p class="lead">Это текст про компанию</p>
+            <h1 class="display-1">Про нас</h1>
+            <p>Это текст про компанию</p>
         </div>
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <span class="">Все права защищены</span>
-    </div>
-</footer>
+
+<?php require 'public/blocks/footer.php' ?>
+
 </body>
 </html>

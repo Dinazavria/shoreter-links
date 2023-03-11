@@ -13,43 +13,26 @@
 
 <body>
 
-<div class="container text-center">
-    <nav class="navbar">
-        <div class="navbar-brand"><img src="" alt="logo"></div>
-        <li class="nav-item">
-            <a class="nav-link" href="/">Главная</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/contact/about/">Про нас</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/contact/">Контакты</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><?php echo "Войти"; ?></a>
-        </li>
-    </nav>
+<?php require 'public/blocks/header.php' ?>
 
     <div class="content d-flex justify-content-center align-items-center">
         <div class="col-md-4">
             <h1 class="display-1">Короче</h1>
-            <p class="lead">Вам нужно сократить ссылку? Прежде чем это сделать, зарегистрируйтесь на сайте</p>
-            <form action="/user/reg" method="POST">
-                <input class="form-control" type="email" placeholder="Введите email" value="<?=$_POST['email']?>">
-                <input class="form-control" type="text" placeholder="Введите логин" value="<?=$_POST['login']?>">
-                <input class="form-control" type="password" placeholder="Введите пароль" value="<?=$_POST['password']?>">
-                <input class="form-control" type="password" placeholder="Повторите пароль" value="<?=$_POST['repass']?>">
-                <button class="btn btn-primary" type="submit">Зарегистрироваться</button>
+            <p>Вам нужно сократить ссылку? Прежде чем это сделать, зарегистрируйтесь на сайте</p>
+            <form action="/home/index" method="POST">
+                <input class="form-control" name="email" type="email" placeholder="Введите email" value="<?=$_POST['email']?>">
+                <input class="form-control" name="login" type="text" placeholder="Введите логин" value="<?=$_POST['login']?>">
+                <input class="form-control" name="password" type="password" placeholder="Введите пароль" value="<?=$_POST['password']?>">
+                <input class="form-control" name="repass" type="password" placeholder="Повторите пароль" value="<?=$_POST['repass']?>">
+                <div class="error"><?=$data['message']?></div>
+                <button class="btn btn-primary" id="send">Зарегистрироваться</button>
             </form>
             <p>Есть аккаунт? Тогда вы можете <a href="" class="link-in-p">авторизоваться</a></p>
         </div>
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <span class="">Все права защищены</span>
-    </div>
-</footer>
+<?php require 'public/blocks/footer.php' ?>
+
 </body>
 </html>

@@ -7,12 +7,17 @@ $textgray: #83757D;
 
 $links: none;
 
+form {
+}
+
 .form-control {
   background: $light;
 }
 .btn-primary {
   background: $accent;
   border-style: none;
+  margin-bottom: 30px;
+
 }
 
 input {
@@ -26,6 +31,7 @@ textarea.form-control {
   resize: none;
 }
 
-.error {
-
+div.error {
+  color: $accent;
+  margin-bottom: 10px;
 }
