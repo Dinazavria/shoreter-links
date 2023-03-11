@@ -1,16 +1,9 @@
 <?php
 class Home extends Controller {
-    public function index($name = '') {
-        $user = $this->model("User");
-        $user->name = $name;
-        $user->getInfo();
+    public function index() {
+        //$user = $this->model("UserModel");
 
-        $this->view(
-            'home/index',
-            ['name' => $user->name, 'test' => 'Hello World' ]);
+        $this->view('home/index');
     }
 
-    public function about() {
-        echo "home/about";
-    }
 }
