@@ -1,0 +1,45 @@
+$dark: #2C2C2C;
+$accent: #EF3A3F;
+$light: #FBFBFB;
+$white: #fff;
+$gray: #D7D7D7;
+$textgray: #83757D;
+
+$links: none;
+
+body{
+
+}
+
+li {
+    list-style-type: none;
+    color: $textgray;
+}
+
+footer {
+    background: $dark;
+    color: $white;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    position: sticky;
+    margin-top: 25px;
+}
+
+p {
+    color: $textgray;
+}
+
+.content {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    min-height: 100%;
+}
+
+.link-in-p {
+    color: $accent;
+    text-decoration: $links;
+}
+
+.display-1 {
+    color: $dark;
+}

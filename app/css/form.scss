@@ -1,0 +1,31 @@
+$dark: #2C2C2C;
+$accent: #EF3A3F;
+$light: #FBFBFB;
+$white: #fff;
+$gray: #D7D7D7;
+$textgray: #83757D;
+
+$links: none;
+
+.form-control {
+  background: $light;
+}
+.btn-primary {
+  background: $accent;
+  border-style: none;
+}
+
+input {
+  margin: 10px;
+}
+
+textarea.form-control {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  height: 150px;
+  resize: none;
+}
+
+.error {
+
+}
