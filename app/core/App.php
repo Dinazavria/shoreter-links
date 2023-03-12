@@ -13,7 +13,6 @@
 
             require_once 'app/controllers/' . $this->controller . '.php';
 
-            //TODO:
             $this->controller = new $this->controller;
             if(isset($url[1])) {
                 if(method_exists($this->controller, $url[1])) {

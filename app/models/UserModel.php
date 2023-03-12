@@ -34,21 +34,21 @@ class UserModel {
     }
 
     public function addUser() {
-        $sql = "INSERT INTO users(email, login, password) VALUES(:email, :login, :password)";
+        $sql = 'INSERT INTO users(email, login, password) VALUES(:email, :login, :password)';
         $query = $this->_db->prepare($sql);
 
         $pass = password_hash($this->password, PASSWORD_DEFAULT);
 
         $query->execute(['email'=> $this->email, 'login' => $this->login, 'password'=>$pass]);
 
-        $this->setCookie();
+        $this->setCookie($this->login);
     }
 
     /*public function getUserEmail() {
         $login = $_COOKIE['login'];
         $result = $this->_db->query("SELECT * FROM `users` WHERE login='$login'");
         return $result->fetch(PDO::FETCH_ASSOC);
-    } */
+    }*/
 
     public function logOut() {
         setcookie('login', $this->login, time() - 3600 * 24 * 14, '/');

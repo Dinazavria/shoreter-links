@@ -18,7 +18,7 @@
         <div class="col-md-4">
                 <h1 class="display-1">Короче</h1>
                 <p>Вам нужно сократить ссылку? Прежде чем это сделать, зарегистрируйтесь на сайте</p>
-                <form action="/user/profile" method="POST">
+                <form action="/home/index" method="post">
                     <input class="form-control" name="email" type="email" placeholder="Введите email" value="<?=$_POST['email']?>">
                     <input class="form-control" name="login" type="text" placeholder="Введите логин" value="<?=$_POST['login']?>">
                     <input class="form-control" name="password" type="password" placeholder="Введите пароль" value="<?=$_POST['password']?>">

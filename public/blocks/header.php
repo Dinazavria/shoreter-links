@@ -5,10 +5,10 @@
             <a class="nav-link" href="/">Главная</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/contact/about/">Про нас</a>
+            <a class="nav-link" href="/contact/about">Про нас</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/contact/">Контакты</a>
+            <a class="nav-link" href="/contact">Контакты</a>
         </li>
         <?php if($_COOKIE['login'] == ''): ?>
         <li class="nav-item">

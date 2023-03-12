@@ -21,7 +21,7 @@
                 <div class="hello">
                     <p>Привет, <b><?=$_COOKIE['login']?></b></p>
                     <form action="/user/profile" method="POST">
-                        <input type="hidden" name="logout">
+                        <input type="hidden" name="logout" value="logout">
                         <button class="btn btn-primary">Выйти</button>
                     </form>
                 </div>
