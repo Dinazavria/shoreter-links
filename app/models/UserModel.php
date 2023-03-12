@@ -1,12 +1,16 @@
 <?php
 
 require 'DB.php';
+
+session_start();
 class UserModel {
     private $email;
     private $login;
     private $password;
     private $repass;
     private $_db = null;
+
+    private $session_name = 'list';
 
     public function __construct() {
         $this->_db = DB::getInstance();
@@ -74,5 +78,8 @@ class UserModel {
         setcookie('login', $login, time() + 3600 * 24 * 14, '/');
         header('Location: /user/profile');
     }
+
+
+
 
 }
