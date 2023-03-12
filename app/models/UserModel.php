@@ -3,7 +3,6 @@
 require 'DB.php';
 class UserModel {
     private $email;
-
     private $login;
     private $password;
     private $repass;

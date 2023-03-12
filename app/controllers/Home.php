@@ -15,8 +15,14 @@ class Home extends Controller {
                 $data['message'] = $isValid;
         }
 
+        if(isset($_POST['link'])) {
+            $slink = $this->model('ShorterModel');
+            $slink->setData($_POST['link'], $_POST['keyword']);
+            $slink->addShorter();
+        }
+
+
         $this->view('home/index', $data);
     }
-
 
 }

@@ -34,8 +34,14 @@
 <?php else: ?>
     <div class="content d-flex justify-content-center align-items-center">
         <div class="col-md-4">
-                <p>Ты авторизовался, ты молодец!</p>
-                <p>(Скоро здесь появится контент)</p>
+            <h1 class="display-1">Короче</h1>
+            <p>Вам нужно сократить ссылку?<br> Сейчас мы это сделаем!</p>
+            <form action="/home/index" method="post">
+                <input class="form-control" name="link" type="text" placeholder="Длинная ссылка" value="<?=$_POST['link']?>">
+                <input class="form-control" name="keyword" type="text" placeholder="Короткое название" value="<?=$_POST['keyword']?>">
+                <div class="error"><?=$data['message']?></div>
+                <button class="btn btn-primary" id="send">Сократить</button>
+            </form>
 
         </div>
     </div>
