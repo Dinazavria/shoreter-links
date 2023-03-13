@@ -13,17 +13,14 @@
 </head>
 <body>
 
+        <p>Происходит переадресация...</p>
         <?php
-
         require_once 'app/models/LinkModel.php';
         $links = new LinkModel();
         $redirect = $links->redirect($_GET['url']);
-?>
-        <p><?php print_r($redirect)?></p>
-        <?php
-        //sleep(5);
-        //header('Location: ' . $redirect);
-        //exit();
+        sleep(5);
+        header('Location: ' . $redirect);
+        exit();
 
         ?>
 
