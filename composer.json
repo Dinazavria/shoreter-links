@@ -1,0 +1,25 @@
+{
+    "name": "vendor/shorter",
+    "description": "This is project short links",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Shorter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Diana Sinenkova",
+            "email": "drsinenkova@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phpmailer/phpmailer": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shorter\\": "app/models"
+        }
+    }
+}

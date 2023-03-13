@@ -2,7 +2,6 @@
 
 require 'DB.php';
 
-session_start();
 class UserModel {
     private $email;
     private $login;
@@ -23,7 +22,12 @@ class UserModel {
         $this->repass = $repass;
     }
 
-    public function validForm() {
+    public function validForm($login) {
+        $result = $this->_db->query("SELECT * FROM `users` WHERE login='$login'");
+        $user = $result->fetch(PDO::FETCH_ASSOC);
+
+        if($user['login'] != '')
+            return "Пользователь с таким логином уже существует";
         if(strlen($this->email) < 3)
             return "Слишком короткий адрес";
         else if(strlen($this->login) < 3)
@@ -46,12 +50,6 @@ class UserModel {
 
         $this->setCookie($this->login);
     }
-
-    /*public function getUserEmail() {
-        $login = $_COOKIE['login'];
-        $result = $this->_db->query("SELECT * FROM `users` WHERE login='$login'");
-        return $result->fetch(PDO::FETCH_ASSOC);
-    }*/
 
     public function logOut() {
         setcookie('login', $this->login, time() - 3600 * 24 * 14, '/');
@@ -78,8 +76,5 @@ class UserModel {
         setcookie('login', $login, time() + 3600 * 24 * 14, '/');
         header('Location: /user/profile');
     }
-
-
-
 
 }

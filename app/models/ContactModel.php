@@ -1,5 +1,7 @@
 <?php
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require 'vendor/autoload.php';
 class ContactModel {
     private $name;
     private $email;
@@ -23,16 +25,34 @@ class ContactModel {
     }
 
     public function mail() {
-        $to = "drsinenkova@gmail.com";
-        $message = "Имя: " . $this->name . " Email: " . $this->email . " Сообщение: " . $this->message;
+        $mail = new PHPMailer(true);
 
-        $subject = "=?utf-8?B?".base64_encode("Сообщение с сайта Короче")."?=";
-        $headers = "From: $this->email\r\nReply-to: $this->email\r\nContent-type: text/html; charset=utf-8\r\n";
-        $success = mail($to, $subject, $message, $headers);
+        try {
+            $mail->SMTPDebug = 2;
+            $mail->isSMTP();
+            $mail->Host = 'smtp.example.ru';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'example@mail.ru';
+            $mail->Password = 'password';
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
+            $mail->CharSet = 'UTF-8';
 
-        if(!$success)
-            return "Сообщение не отправлено";
-        else
-            return true;
+            $mail->setFrom($this->email, $this->name);
+            /*Указываем перечень адресов почты куда отсылаем сообщение*/
+            $mail->addAddress('admin@shorter.ru', 'Команда Shorter');
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Новое сообщение с сайта Короче';
+            $mail->Body    = "Имя: " . $this->name . " Email: " . $this->email . " Сообщение: " . $this->message;
+            $mail->AltBody = 'Новое сообщение с сайта Короче';
+            $mail->send();
+            return 'Сообщение успешно отправлено';
+
+        } catch (Exception $e) {
+            return 'При отправке сообщения произошла ошибка.';
+        }
+
+        $mail->clearAddresses();
     }
 }

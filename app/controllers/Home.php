@@ -9,37 +9,28 @@ class Home extends Controller {
 
             $user->setData($_POST['email'], $_POST['login'], $_POST['password'], $_POST['repass']);
 
-            $isValid = $user->validForm();
+            $isValid = $user->validForm($_POST['login']);
             if($isValid == "Происходит регистрация")
                 $user->addUser();
             else
                 $data['message'] = $isValid;
-
-            $links = $this->model('ShorterModel');
-
-            if(isset($_POST['iddel'])) {
-                $delete = $links->deleteShorter($_POST['iddel']);
-                if($delete == "Удалено")
-                    $data['message'] = $delete;
-                else
-                    $data['message'] = $delete;
-            }
-
         }
 
         if(isset($_POST['link'])) {
             $slink = $this->model('ShorterModel');
             $slink->setData($_POST['link'], $_POST['keyword']);
 
-            $isValid = $slink->validForm();
-            if($isValid == "Сокращаем...")
+            $isLinksValid = $slink->validLinkForm($_POST['keyword']);
+            if($isLinksValid == "Сокращаем")
                 $slink->addShorter();
             else
-                $data['message'] = $isValid;
-
+                $data['link_message'] = $isLinksValid;
         }
 
-
+        if(isset($_POST['id'])) {
+            $links = $this->model('ShorterModel');
+            $links->deleteShorter($_POST['id']);
+        }
 
         $this->view('home/index', $data);
     }

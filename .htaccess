@@ -1,13 +1,16 @@
 ServerSignature Off
 AddDefaultCharset UTF-8
+DirectoryIndex index.php
+Options -Indexes
 
 Options -MultiViews
 RewriteEngine On
 
 RewriteBase /
 
-
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
+
+php_flag register_globals off
 
 RewriteRule ^(.+)$ index.php?url=$1
